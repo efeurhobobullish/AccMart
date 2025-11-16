@@ -1,31 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Raleway:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap');
 
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --secondary: #f9f9f9;
-  --foreground: #f5f5f5;
-  --main: #444;
-  --muted: #999999;
-  --primary: #222;
-  --line: #f1f1f1;
+  --background: #fafafa;
+  --secondary: #f4f4f5;
+  --foreground: #e4e4e7;
+  --main: #18181b;
+  --muted: #71717a;
+  --primary: #09090b;
+  --line: #e4e4e7;
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #212121;
-  --main: #fefefe;
-  --secondary: #121212;
-  --muted: #999999;
-  --line: #212121;
-  --primary: #fefefe;
+  --background: #121212;
+  --foreground: #1f1f1f;
+  --main: #e4e4e7;
+  --secondary: #1a1a1a;
+  --muted: #a1a1aa;
+  --line: #27272a;
+  --primary: #fafafa;
 }
 
 @theme inline {
   --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-raleway: "Raleway", sans-serif;
+  --font-space: "Space Grotesk", sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-secondary: var(--secondary);
@@ -57,7 +59,7 @@ body {
 
 button,
 .btn {
-  @apply cursor-pointer flex items-center justify-center gap-2 disabled:opacity-50;
+  @apply cursor-pointer font-space flex items-center justify-center gap-2 disabled:opacity-50;
 }
 
 .btn-primary {

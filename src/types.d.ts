@@ -41,3 +41,32 @@ interface SelectWithoutIconProps
     value: string;
   }[];
 }
+
+interface Credential {
+  id: string
+  title: string
+  fields: {
+    label: string
+    value: string
+  }[]
+}
+
+interface User {
+  id: string;
+  name: string;
+  password: string;
+  securityQuestion?: string;
+  securityAnswer?: string;
+}
+
+interface PrivateNote {
+  id: string;
+  title: string;
+  content: string;
+}
+
+interface SecretUrl {
+  id: string;
+  title: string;
+  url: string;
+}
