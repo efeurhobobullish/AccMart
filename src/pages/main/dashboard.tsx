@@ -86,7 +86,7 @@ export default function Dashboard() {
   };
   return (
     <Wrapper title={greeting(username.split(" ")[0])}>
-      <div className="flex flex-col gap-4 h-[calc(100dvh-200px)]">
+      <div className="flex flex-col gap-4 h-[calc(100dvh-100px)]">
         {/* Security Question Notification */}
         {!hasSecurityQuestion() && showNotification && (
           <div className="bg-yellow-500/10 border border-yellow-500/20 p-4 rounded-xl relative">
@@ -143,7 +143,7 @@ export default function Dashboard() {
           ))}
         </div>
 
-        <div className="text-center mt-auto">
+        <div className="text-center mt-40 pb-20">
           <p className="text-muted text-xs">
             Secure with{" "}
             <span className="font-bold text-yellow-500">AES-256</span>{" "}
@@ -152,12 +152,12 @@ export default function Dashboard() {
           <p>
             Built with 😈 by{" "}
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/learnwithjacksun/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500"
             >
-              Gift Jacksun
+              Gift Jacksun 🤖
             </a>
           </p>
         </div>

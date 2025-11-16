@@ -23,6 +23,7 @@ export default function Home() {
             </h1>
            
           <p className="text-muted text-xs">Secure with <span className="font-bold text-yellow-500">AES-256</span> encryption.</p>
+          <p className="text-muted text-sm">Stay Secure, Stay Safe. Store any sensitive information securely with Quest Lock.</p>
           </div>
 
           <div className="flex gap-4 text-sm md:flex-row flex-col">
