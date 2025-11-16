@@ -1,6 +1,6 @@
-import { ButtonWithLoader, InputWithIcon, Pattern } from "@/components/ui";
+import { ButtonWithLoader, Pattern } from "@/components/ui";
 import ModeToggle from "@/components/ui/mode-toggle";
-import { ChevronLeft, Lock } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -67,15 +67,16 @@ export default function Pin() {
           onSubmit={handleSubmit}
           className="w-full max-w-[400px] mx-auto space-y-4 dark:bg-secondary bg-white p-4 rounded-xl border border-line"
         >
-          <InputWithIcon
-            icon={<Lock size={20} />}
+          <input
             type="password"
-            placeholder="--- --- --- ---"
-            className="dark:bg-foreground bg-white"
+            placeholder="0000"
+            className="text-4xl h-20 font-space font-bold text-center w-full"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            maxLength={4}
             required
             autoFocus
+            autoComplete="new-password"
           />
 
           <ButtonWithLoader
@@ -87,21 +88,21 @@ export default function Pin() {
           />
 
           <div>
+            <Link to="/setup">
+              <button className="w-full font-medium border border-line dark:bg-foreground bg-background h-10 rounded-full text-sm font-space">
+                New user? Click here
+              </button>
+            </Link>
+          </div>
+          <div>
             <Link to="/forgot-passcode">
               <button className="w-full font-medium text-muted text-sm hover:text-main transition-colors">
                 Forgot passcode?
               </button>
             </Link>
           </div>
-          <div>
-            <Link to="/setup">
-              <button className="w-full font-medium border border-line bg-secondary h-10 rounded-full text-sm font-space">
-                New user? Click here
-              </button>
-            </Link>
-          </div>
 
-          <div>
+          <div className="border-t border-line pt-4">
             <Link to="/">
               <button className="w-full font-medium text-muted text-sm">
                 <ChevronLeft size={20} />

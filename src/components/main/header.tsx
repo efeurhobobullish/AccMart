@@ -44,13 +44,13 @@ export default function Header() {
               </Link>
             )}
             {isProfile && (
-              <Link
-                to="/app"
-                className="flex items-center gap-2 bg-background dark:bg-secondary p-2 rounded-full border border-line"
-              >
-                <Home size={18} />
-                <span className="text-sm font-medium">Home</span>
-              </Link>
+               <button
+               onClick={() => navigate(-1)}
+               className="h-10 w-10 rounded-full dark:bg-secondary bg-background border border-line"
+               title="Go back"
+             >
+               <ChevronLeft size={20} />
+             </button>
             )}
           </div>
 

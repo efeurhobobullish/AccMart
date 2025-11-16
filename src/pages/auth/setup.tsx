@@ -3,23 +3,18 @@ import ModeToggle from "@/components/ui/mode-toggle";
 import { ChevronLeft, Lock, UserRound } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import useAuth from "@/hooks/useAuth";
 import { toast } from "sonner";
 
 export default function Setup() {
   const navigate = useNavigate();
-  const { setupUser, checkUserExists } = useAuth();
+  const { setupUser } = useAuth();
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
-  // Redirect if user already exists
-  useEffect(() => {
-    if (checkUserExists()) {
-      navigate("/pin");
-    }
-  }, [checkUserExists, navigate]);
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,8 +49,8 @@ export default function Setup() {
 
   return (
     <Pattern>
-      <div className="h-[100dvh] relative z-10 py-20 flex-col gap-10 text-center layout space-y-10">
-        <h1 className="text-2xl font-space font-bold">Setup your account</h1>
+      <div className="h-[100dvh] relative z-10 py-20 flex-col gap-10 layout space-y-10">
+        <h1 className="text-2xl font-space font-bold text-center">Setup your account</h1>
 
         <motion.form
           initial={{ opacity: 0, y: 10 }}
@@ -69,8 +64,9 @@ export default function Setup() {
           <InputWithIcon
             icon={<UserRound size={20} />}
             type="text"
-            placeholder="Your name"
-            className="dark:bg-foreground bg-white"
+            label="Name"
+            placeholder="e.g John Doe"
+            className="dark:bg-foreground bg-secondary"
             autoComplete="off"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -79,13 +75,15 @@ export default function Setup() {
           <InputWithIcon
             icon={<Lock size={20} />}
             type="password"
-            placeholder="Min. of 4 characters"
-            className="dark:bg-foreground bg-white"
+            label="Passcode"
+            placeholder="4 Characters Passcode"
+            className="dark:bg-foreground bg-secondary"
             autoComplete="new-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
             minLength={4}
+            maxLength={4}
           />
 
           <ButtonWithLoader
@@ -98,7 +96,7 @@ export default function Setup() {
 
           <div>
             <Link to="/pin">
-              <button className="w-full font-medium border border-line bg-secondary h-10 rounded-full text-sm font-space">
+              <button className="w-full font-medium border border-line dark:bg-foreground bg-background h-10 rounded-full text-sm font-space">
                 Old user? Click here
               </button>
             </Link>
@@ -113,7 +111,7 @@ export default function Setup() {
             </Link>
           </div>
         </motion.form>
-        <p className="text-muted text-xs">
+        <p className="text-muted text-xs text-center">
           Secure with <span className="font-bold text-yellow-500">AES-256</span>{" "}
           encryption.
         </p>

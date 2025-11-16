@@ -9,12 +9,12 @@ export default function Home() {
       <Pattern>
         <div className="h-[100dvh] relative z-10 center flex-col gap-10 text-center layout">
           <div className="center gap-2">
-            <div className="center gap-2 bg-secondary/70 rounded-full px-4 py-2 backdrop-blur border border-line">
+            <div className="center gap-2 drop-shadow-2xl drop-shadow-main/10 dark:bg-foreground bg-background rounded-full px-4 py-2 backdrop-blur border border-foreground">
               <span className="relative flex size-3">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
                 <span className="relative inline-flex size-3 rounded-full bg-green-500"></span>
               </span>
-              <p className="text-sm">Active Security 24/7</p>
+              <p className="text-sm text-muted">Active Security 24/7</p>
             </div>
           </div>
           <div className="space-y-2">
