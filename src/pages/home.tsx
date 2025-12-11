@@ -11,14 +11,13 @@ const features = [
   "24/7 Support",
 ];
 
-// ✔ Framer Motion SAFE animation (no variants)
+// ⭐ FINAL FIX: No easing, no variants. 100% TS safe.
 const orbAnimation = {
   y: [0, -20, 0],
   x: [0, 10, 0],
   transition: {
     repeat: Infinity,
     duration: 8,
-    ease: "easeInOut",
   },
 };
 
@@ -28,7 +27,7 @@ export default function Home() {
       <Pattern>
         <div className="relative overflow-hidden min-h-[100vh] flex flex-col items-center justify-center text-center px-4">
 
-          {/* ==== FLOATING GLOW ORBS (TS FIXED) ==== */}
+          {/* FLOATING ORBS (NO TS ERRORS) */}
           <motion.div
             className="absolute top-20 left-10 w-40 h-40 bg-primary/10 blur-3xl rounded-full"
             animate={orbAnimation}
@@ -40,22 +39,22 @@ export default function Home() {
             transition={{ delay: 1 }}
           />
 
-          {/* ==== MODE TOGGLE ==== */}
+          {/* MODE TOGGLE */}
           <div className="absolute top-4 right-4 z-20">
             <ModeToggle />
           </div>
 
-          {/* ==== HERO SECTION ==== */}
+          {/* HERO */}
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
+            transition={{ duration: 1 }}
             className="space-y-4 max-w-[700px] z-20"
           >
             <motion.h1
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+              transition={{ duration: 1, delay: 0.2 }}
               className="text-5xl md:text-7xl font-space font-bold text-transparent bg-clip-text bg-gradient-to-r from-main to-main/70 dark:to-main/40"
             >
               AccMart
@@ -80,7 +79,7 @@ export default function Home() {
             </motion.p>
           </motion.div>
 
-          {/* ==== CTA BUTTONS ==== */}
+          {/* CTA BUTTONS */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -108,13 +107,13 @@ export default function Home() {
             </Link>
           </motion.div>
 
-          {/* ==== IMAGE SHOWCASE (3D + FLOATING) ==== */}
+          {/* IMAGES */}
           <div className="grid md:grid-cols-2 grid-cols-1 gap-8 w-full max-w-[1000px] mt-16 px-4 z-20">
 
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.1, duration: 0.6, ease: "easeOut" }}
+              transition={{ delay: 1.1, duration: 0.6 }}
               whileHover={{ scale: 1.03, rotateX: 4, rotateY: -4 }}
               className="bg-secondary border border-line rounded-xl p-4 shadow-lg hover:shadow-xl transition-all"
             >
@@ -131,7 +130,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.2, duration: 0.6, ease: "easeOut" }}
+              transition={{ delay: 1.2, duration: 0.6 }}
               whileHover={{ scale: 1.03, rotateX: 4, rotateY: 4 }}
               className="bg-secondary border border-line rounded-xl p-4 shadow-lg hover:shadow-xl transition-all"
             >
@@ -144,9 +143,10 @@ export default function Home() {
               />
               <p className="text-muted text-sm mt-2">Pick your preferred country</p>
             </motion.div>
+
           </div>
 
-          {/* ==== FEATURE LIST ==== */}
+          {/* FEATURES */}
           <motion.ul
             initial="hidden"
             animate="show"
@@ -174,7 +174,7 @@ export default function Home() {
             ))}
           </motion.ul>
 
-          {/* ==== FOOTER ==== */}
+          {/* FOOTER */}
           <motion.footer
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
