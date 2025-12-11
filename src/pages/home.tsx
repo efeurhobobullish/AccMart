@@ -11,7 +11,7 @@ const features = [
   "24/7 Support",
 ];
 
-// Floating orb background variants
+// Floating orb background variants (FIXED easing)
 const orbVariants = {
   animate: {
     y: [0, -20, 0],
@@ -19,7 +19,7 @@ const orbVariants = {
     transition: {
       repeat: Infinity,
       duration: 8,
-      ease: "easeInOut",
+      ease: [0.42, 0, 0.58, 1], // FIXED → Heroku TypeScript compatible
     },
   },
 };
@@ -43,7 +43,7 @@ export default function Home() {
             transition={{ delay: 1 }}
           />
 
-          {/* MODE TOGGLE TOP RIGHT */}
+          {/* MODE TOGGLE */}
           <div className="absolute top-4 right-4 z-20">
             <ModeToggle />
           </div>
@@ -52,13 +52,13 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
+            transition={{ duration: 0.9, ease: [0.42, 0, 0.58, 1] }}
             className="space-y-4 max-w-[700px] z-20"
           >
             <motion.h1
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+              transition={{ duration: 1, delay: 0.2, ease: [0.42, 0, 0.58, 1] }}
               className="text-5xl md:text-7xl font-space font-bold text-transparent bg-clip-text bg-gradient-to-r from-main to-main/70 dark:to-main/40"
             >
               AccMart
@@ -67,7 +67,7 @@ export default function Home() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
               className="text-muted text-xl"
             >
               The #1 Marketplace to Buy & Sell Social Media Accounts
@@ -83,7 +83,7 @@ export default function Home() {
             </motion.p>
           </motion.div>
 
-          {/* ==== MAGNETIC CTA BUTTONS ==== */}
+          {/* ==== CTA BUTTONS (MAGNETIC) ==== */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -111,13 +111,14 @@ export default function Home() {
             </Link>
           </motion.div>
 
-          {/* ==== IMAGE SHOWCASE WITH 3D HOVER ==== */}
+          {/* ==== IMAGE SHOWCASE WITH 3D TILT + FLOATING ANIMATION ==== */}
           <div className="grid md:grid-cols-2 grid-cols-1 gap-8 w-full max-w-[1000px] mt-16 px-4 z-20">
 
+            {/* CARD 1 */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.1, duration: 0.6 }}
+              transition={{ delay: 1.1, duration: 0.6, ease: [0.42, 0, 0.58, 1] }}
               whileHover={{ scale: 1.03, rotateX: 4, rotateY: -4 }}
               className="bg-secondary border border-line rounded-xl p-4 shadow-lg hover:shadow-xl transition-all"
             >
@@ -131,10 +132,11 @@ export default function Home() {
               <p className="text-muted text-sm mt-2">Choose the service you want</p>
             </motion.div>
 
+            {/* CARD 2 */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.2, duration: 0.6 }}
+              transition={{ delay: 1.2, duration: 0.6, ease: [0.42, 0, 0.58, 1] }}
               whileHover={{ scale: 1.03, rotateX: 4, rotateY: 4 }}
               className="bg-secondary border border-line rounded-xl p-4 shadow-lg hover:shadow-xl transition-all"
             >
@@ -150,7 +152,7 @@ export default function Home() {
 
           </div>
 
-          {/* ==== FEATURES STAGGERED ANIMATIONS ==== */}
+          {/* ==== FEATURES (STAGGERED APPEAR) ==== */}
           <motion.ul
             initial="hidden"
             animate="show"
@@ -178,7 +180,7 @@ export default function Home() {
             ))}
           </motion.ul>
 
-          {/* ==== ANIMATED FOOTER ==== */}
+          {/* ==== FOOTER (FADE-IN) ==== */}
           <motion.footer
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -197,6 +199,7 @@ export default function Home() {
               </div>
             </div>
           </motion.footer>
+
         </div>
       </Pattern>
     </>
