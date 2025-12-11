@@ -1,7 +1,16 @@
 import ModeToggle from "@/components/ui/mode-toggle";
 import { Pattern } from "@/components/ui";
-import { libraries } from "@/constants/data";
 import { Link } from "react-router-dom";
+
+// Replace libraries with features or keep same constant if reused
+const features = [
+  "Secure Payments",
+  "Verified Sellers",
+  "Instant Delivery",
+  "Multi-Platform Accounts",
+  "Escrow Protection",
+  "24/7 Support",
+];
 
 export default function Home() {
   return (
@@ -9,49 +18,50 @@ export default function Home() {
       <Pattern>
         <div className="h-[100dvh] relative z-10 center flex-col gap-10 text-center layout">
 
-          <div className="center gap-2">
-            <div className="center gap-2 drop-shadow-2xl drop-shadow-main/10 dark:bg-foreground bg-background rounded-full px-4 py-2 backdrop-blur border border-foreground">
-              <span className="relative flex size-3">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
-                <span className="relative inline-flex size-3 rounded-full bg-green-500"></span>
-              </span>
-              <p className="text-sm text-muted">For Entertainment Only</p>
-            </div>
-          </div>
-
+          {/* HERO SECTION */}
           <div className="space-y-2">
             <h1 className="text-6xl md:leading-[80px] leading-[60px] font-space font-bold text-transparent bg-clip-text bg-gradient-to-r from-main to-main/70 dark:to-main/50">
-              Receipt Forge
+              AccMart
             </h1>
 
             <p className="text-muted text-xs">
-              Create fun & prank receipts instantly.
+              Buy & Sell Verified Social Media Accounts Securely.
             </p>
+
             <p className="text-muted text-sm">
-              Generate realistic-style receipts for jokes, social media fun, and entertainment — 
-              <span className="font-bold text-yellow-500">not for real transactions.</span>
+              A trusted marketplace for Instagram, TikTok, Facebook, and other social media accounts — 
+              <span className="font-bold text-primary"> safe, fast, and verified.</span>
             </p>
           </div>
 
+          {/* CTA BUTTONS */}
           <div className="flex gap-4 text-sm md:flex-row flex-col">
-            <Link to="/generate">
+            <Link to="/buy">
               <button className="btn-primary min-w-[200px] h-10 rounded-full">
-                Create a Receipt
+                Buy Accounts
+              </button>
+            </Link>
+
+            <Link to="/sell">
+              <button className="border border-primary text-primary dark:text-primary h-10 min-w-[200px] rounded-full font-space">
+                Sell Accounts
               </button>
             </Link>
           </div>
 
+          {/* FEATURE PILL LIST */}
           <ul className="center flex-wrap gap-2">
-            {libraries.map((library) => (
+            {features.map((item) => (
               <li
-                key={library}
+                key={item}
                 className="text-xs text-muted bg-secondary border border-line rounded-full px-4 py-2"
               >
-                {library}
+                {item}
               </li>
             ))}
           </ul>
 
+          {/* MODE TOGGLE BUTTON */}
           <div className="absolute top-4 right-4">
             <ModeToggle />
           </div>
