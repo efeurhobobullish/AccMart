@@ -18,37 +18,22 @@ export default function Signup() {
           <ModeToggle />
         </div>
 
-        {/* Go Back Button */}
+        {/* Back Button */}
         <div className="absolute top-4 left-4">
           <GobackButton />
         </div>
 
-        {/* Card */}
+        {/* CARD */}
         <div className="w-full max-w-[420px] bg-secondary border border-line rounded-2xl p-8 shadow-md space-y-6">
 
-          {/* Title */}
+          {/* TITLE */}
           <div className="text-center space-y-1">
             <h1 className="text-2xl font-bold font-space text-main">
-              Create Account
+              Create an Account
             </h1>
             <p className="text-muted text-sm">
-              Join AccMart to buy and sell accounts securely.
+              Join AccMart today — secure & verified trading.
             </p>
-          </div>
-
-          {/* GOOGLE BUTTON */}
-          <button
-            className="w-full h-10 rounded-full border border-line bg-background flex items-center justify-center gap-2 font-space text-sm hover:bg-foreground transition"
-          >
-            <img src="/google.png" alt="Google" className="w-5 h-5" />
-            Continue with Google
-          </button>
-
-          {/* Divider */}
-          <div className="flex items-center gap-3">
-            <span className="flex-1 h-[1px] bg-line"></span>
-            <span className="text-xs text-muted">or</span>
-            <span className="flex-1 h-[1px] bg-line"></span>
           </div>
 
           {/* FORM */}
@@ -75,6 +60,7 @@ export default function Signup() {
               name="password"
             />
 
+            {/* SIGNUP BUTTON */}
             <ButtonWithLoader
               loading={false}
               initialText="Create Account"
@@ -82,6 +68,21 @@ export default function Signup() {
               className="w-full h-10 rounded-full font-space"
             />
           </form>
+
+          {/* OR DIVIDER */}
+          <div className="flex items-center gap-3">
+            <span className="flex-1 h-[1px] bg-line"></span>
+            <span className="text-xs text-muted">or continue with</span>
+            <span className="flex-1 h-[1px] bg-line"></span>
+          </div>
+
+          {/* GOOGLE BUTTON — now correctly placed BELOW form */}
+          <button
+            className="w-full h-10 rounded-full border border-line bg-background flex items-center justify-center gap-2 font-space text-sm hover:bg-foreground transition"
+          >
+            <img src="/google.png" alt="Google" className="w-5 h-5" />
+            Google
+          </button>
 
           {/* LOGIN LINK */}
           <p className="text-center text-sm text-muted">
