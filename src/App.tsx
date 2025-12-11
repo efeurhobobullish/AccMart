@@ -4,7 +4,7 @@ import { ScrollToTop } from "@/components/ui";
 import ProtectedRoute from "@/components/auth/ProtectedRoute";
 import AuthGuard from "@/components/auth/AuthGuard";
 import { Home } from "@/pages";
-import { Pin, Setup, ForgotPasscode } from "./pages/auth";
+import { Signup, Pin, Setup, ForgotPasscode } from "./pages/auth";
 import {
   CreditCards,
   IdNumbers,
@@ -39,6 +39,15 @@ export default function App() {
             element={
               <PageTransition>
                 <Home />
+              </PageTransition>
+            }
+          />
+  
+           <Route
+            path="/signup"
+            element={
+              <PageTransition>
+                <Signup />
               </PageTransition>
             }
           />
