@@ -77,10 +77,10 @@ export default function Signup() {
 
             <ButtonWithLoader
               loading={false}
+              initialText="Create Account"
+              loadingText="Creating..."
               className="w-full h-10 rounded-full font-space"
-            >
-              Create Account
-            </ButtonWithLoader>
+            />
           </form>
 
           {/* LOGIN LINK */}
