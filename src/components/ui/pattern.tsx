@@ -18,5 +18,3 @@ export default function Pattern({ children }: { children: React.ReactNode }) {
     </>
   );
 }
-
-
