@@ -1,5 +1,5 @@
 {
-  "name": "my-react-template",
+  "name": "accmart",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "serve -s dist -l $PORT"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.0",
@@ -23,6 +24,7 @@
     "react-hook-form": "^7.61.1",
     "react-router-dom": "^7.7.1",
     "sonner": "^2.0.6",
+    "serve": "14.2.5",
     "zod": "^4.0.10",
     "zustand": "^5.0.6"
   },
