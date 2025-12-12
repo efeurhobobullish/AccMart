@@ -10,7 +10,7 @@ import {
 
 import { Wrapper } from "@/layouts";
 
-// Lucide Icons
+// Lucide icons
 import { User, Mail, Lock } from "lucide-react";
 
 export default function Signup() {
@@ -24,7 +24,7 @@ export default function Signup() {
             <ModeToggle />
           </div>
 
-          {/* Back Btn */}
+          {/* Back button */}
           <div className="absolute top-4 left-4">
             <GobackButton />
           </div>
@@ -46,21 +46,21 @@ export default function Signup() {
             <form className="space-y-4">
 
               <InputWithIcon
-                icon={User}
+                icon={<User className="w-4 h-4 text-muted" />}
                 placeholder="Full Name"
                 type="text"
                 name="fullName"
               />
 
               <InputWithIcon
-                icon={Mail}
+                icon={<Mail className="w-4 h-4 text-muted" />}
                 placeholder="Email Address"
                 type="email"
                 name="email"
               />
 
               <InputWithIcon
-                icon={Lock}
+                icon={<Lock className="w-4 h-4 text-muted" />}
                 placeholder="Password"
                 type="password"
                 name="password"
@@ -81,7 +81,7 @@ export default function Signup() {
               <span className="flex-1 h-[1px] bg-line"></span>
             </div>
 
-            {/* Google Button */}
+            {/* Google */}
             <button
               className="w-full h-10 rounded-full border border-line bg-background flex items-center justify-center gap-2 font-space text-sm hover:bg-foreground transition"
             >
@@ -89,14 +89,13 @@ export default function Signup() {
               Google
             </button>
 
-            {/* Login Redirect */}
+            {/* Login Link */}
             <p className="text-center text-sm text-muted">
               Already have an account?{" "}
               <Link to="/login" className="text-primary font-semibold">
                 Login
               </Link>
             </p>
-
           </div>
         </div>
       </Pattern>
